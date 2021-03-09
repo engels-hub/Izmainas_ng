@@ -1,1 +1,146 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; overflow: hidden !important;}
+body { margin: 0;padding:0; }
+.mat-drawer-container{
+  background-color: rgb(248, 249, 249) !important;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge add Firefox */
+  .scrollbar-hidden {
+    -ms-overflow-style: none;
+    scrollbar-width: none; /* Firefox */
+  }
+
+  /*
+  * {
+    overflow: hidden !important;
+  }
+  */
+  .mat-body, .mat-body-1, .mat-typography, .mat-h3, .mat-subheading-2, .mat-typography h3, .mat-tab-label, .mat-tab-link,.mat-body, .mat-body-1, .mat-typography,.mat-expansion-panel-header,.mat-list-item,.mat-expansion-panel-content,mat-card{
+    font-family:'Poppins', sans-serif !important;
+    line-height: 1.8 !important;
+  }
+  .mat-toolbar, .mat-toolbar h1, .mat-toolbar h2, .mat-toolbar h3, .mat-toolbar h4, .mat-toolbar h5, .mat-toolbar h6, mat-card-title {
+    font-family:'Maven Pro', sans-serif !important;
+  }
+  .mat-toolbar-row, .mat-toolbar-single-row{
+    height:6%;
+  }
+  mat-divider.mat-divider, mat-divider.mat-divider-inset {
+    margin-left: 0 !important; 
+}
+div.main{
+  width:70%;
+  margin-left: 15%;
+  height:88% !important;
+}
+app-main-nav, .main{
+  overflow-y: overlay;
+}
+
+.mat-elevation-z4{
+  margin-top: 5%;
+  width: 200px;
+}
+div.content{
+  overflow-y: auto !important;
+  width:80%;
+  margin-left: 10%;
+}
+.pc{
+  display:none;
+}
+.mobile{
+  display:inherit;
+}
+mat-divider{
+  width:100%;
+  margin-left: 0px !important;
+}
+
+a.bigmode{
+  padding-top: 5px;
+  display: block;
+}
+.filter-form-field{
+  
+  display:none;
+}
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height:fit-content;
+  background-color: inherit;
+  color:rgb(136, 136, 136);
+  text-align: center;
+  z-index: 100;
+}
+
+@media(min-width:600px){
+  .pc{
+      display:inherit;
+  }
+  .mobile{
+      display:none;
+  }
+  .filter-form-field{
+    width:97%;
+    display: flex;
+  
+    padding-inline-end:5%;
+    justify-content:flex-end;
+  }
+}
+
+.footer-div p{
+  margin-top: 8px;
+}
+
+mat-divider.mat-divider, mat-divider.mat-divider-inset {
+   margin-left: 0 !important; 
+}
+
+mat-card{
+  padding-top: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  height:100%;
+}
+mat-card-title-group{
+  background-color: rgb(235, 235, 235);
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 16px;
+  border-radius: 4px 4px 0 0; 
+}
+mat-card p{
+  margin-top: 16px !important; 
+  margin-right: 16px !important; 
+  margin-left: 16px !important;
+  margin-bottom: 16px !important; 
+  
+}
+p mat-icon{
+  align-self: center!important;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+span.form{
+  
+  margin-right: 16px !important; 
+  margin-left: 16px !important;
+  margin-bottom: 32px !important;
+}
+
+p.nf{
+  font-family: 'Poppins', sans-serif;
+  font-size:48px; 
+  font-style: italic;
+}

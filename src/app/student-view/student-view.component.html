@@ -1,0 +1,193 @@
+
+  <div class="main" >
+  <mat-tab-group mat-align-tabs="center"  dynamicHeight>
+    <mat-tab label = "Šodien" width="100%" height="100%"> 
+      
+     <!-- {{post | json}} *ngFor="let post of posts | async"-->
+     
+     <h3 style="width:100%; text-align: center;">{{datums1}}</h3>
+     <div class="filter-form-field" >
+     <mat-form-field appearance="legacy">
+      <mat-label>Filtrēt</mat-label>
+      <input matInput type="text" (input)="onFilterChange($event, 0)" [(ngModel)]="_value" >
+    </mat-form-field>
+    </div>
+     <h3 style="width:100%; height:80%; text-align: center; padding-top: 20%;" *ngIf="izmainas===undefined && codes0!=204">Notika kļūda. Mēģiniet vēlreiz!</h3>
+     <h3 style="width:100%; height:80%; text-align: center; padding-top: 20%;" *ngIf=" codes0==204">Izmaiņu nav</h3>
+     <div class="pc" style="width:44%; height:100%; float:left; margin-left:5%; margin-right: 1%; padding-bottom: 10%;" *ngIf="arr.length!=0">
+      <mat-accordion multi="false">
+      <div *ngFor="let item of arr">
+      <mat-expansion-panel style="margin-top:2%;">
+        <mat-expansion-panel-header>
+          <mat-panel-title>{{item.class}}</mat-panel-title>
+          <mat-panel-description>Izmaiņu skaits: {{item?.lessons?.length}}</mat-panel-description>
+        </mat-expansion-panel-header>
+        <div *ngFor="let stunda of item.lessons"><mat-divider [inset]="true"></mat-divider>{{stunda.lessonNumber}}. 
+          <span *ngIf="stunda?.rooms?.length == 0 "> Nenotiek!</span>
+          <p *ngFor="let room of stunda.rooms">
+          Kabinets: {{room.room}}. <br>
+          Priekšmets: {{room.subject}}<br>
+          Skolotājs: {{room.teacherName}}<br>
+          <span *ngIf="room.note != null ">Piezīme: {{room.note.noteText}}</span>
+          </p>
+        </div>
+    </mat-expansion-panel>
+    </div>
+    <mat-divider [inset]="true"></mat-divider>
+  </mat-accordion>
+  
+    </div>
+     <div class="pc" style="width:44%; height:100%; float:left; margin-left:1%; margin-right: 5%; padding-bottom: 10%;"*ngIf="arr2.length!=0">
+      <mat-accordion multi="false">
+        <div *ngFor="let item of arr2">
+        <mat-expansion-panel style="margin-top:2%;">
+          <mat-expansion-panel-header>
+            <mat-panel-title>{{item.class}}</mat-panel-title>
+            <mat-panel-description>Izmaiņu skaits: {{item?.lessons?.length}}</mat-panel-description>
+          </mat-expansion-panel-header>
+          <div *ngFor="let stunda of item.lessons"><mat-divider [inset]="true"></mat-divider>{{stunda.lessonNumber}}. 
+            <span *ngIf="stunda?.rooms?.length == 0 "> Nenotiek!</span>
+            <p *ngFor="let room of stunda.rooms">
+            Kabinets: {{room.room}}. <br>
+            Priekšmets: {{room.subject}}<br>
+            Skolotājs: {{room.teacherName}}<br> 
+            <span *ngIf="room.note != null ">Piezīme: {{room.note.noteText}}</span>
+            </p>
+          </div>
+      </mat-expansion-panel>
+      </div>
+      <mat-divider [inset]="true"></mat-divider>
+    </mat-accordion>
+    
+
+    </div>
+
+
+    <div class="mobile" style="padding-bottom: 20%;">
+
+      <mat-accordion multi="false" *ngIf="izmainas!==undefined">
+        <div *ngFor="let item of izmainas">
+          <mat-expansion-panel style="margin-top:2%;">
+        <mat-expansion-panel-header>
+          <mat-panel-title>{{item.class}}</mat-panel-title>
+          <mat-panel-description>Izmaiņu skaits: {{item?.lessons?.length}}</mat-panel-description>
+        </mat-expansion-panel-header>
+        
+        <div *ngFor="let stunda of item.lessons"><mat-divider [inset]="true"></mat-divider>{{stunda.lessonNumber}}. 
+          <span *ngIf="stunda?.rooms?.length == 0 "> Nenotiek!</span>
+          <p *ngFor="let room of stunda.rooms">
+          Kabinets: {{room.room}}. <br>
+          Priekšmets: {{room.subject}}<br>
+          Skolotājs: {{room.teacherName}}<br>
+          <span *ngIf="room.note != null ">Piezīme: {{room.note.noteText}}</span>
+          </p>
+        </div>
+        </mat-expansion-panel>
+        </div>
+        
+      
+      <mat-divider [inset]="true"></mat-divider>
+      
+    </mat-accordion>
+    
+    </div>
+    </mat-tab>
+    <mat-tab label = "Rīt">
+      <!-- {{post | json}} *ngFor="let post of posts | async"-->
+     
+     <h3 style="width:100%; text-align: center;">{{datums2}}</h3>
+     <div class="filter-form-field" >
+      <mat-form-field appearance="legacy">
+       <mat-label>Filtrēt</mat-label>
+       <input matInput type="text" (input)="onFilterChange($event, 1)" [(ngModel)]="_valueT" >
+     </mat-form-field>
+     </div>
+     <h3 style="width:100%; height:80%; text-align: center; padding-top: 20%;" *ngIf="izmainasT===undefined && codes1!=204">Notika kļūda. Mēģiniet vēlreiz!</h3>
+     <h3 style="width:100%; height:80%; text-align: center; padding-top: 20%;" *ngIf="codes1==204">Izmaiņu nav!</h3>
+     <div class="pc" style="width:44%; height:100%; float:left; margin-left:5%; margin-right: 1%; padding-bottom: 10%;" *ngIf="arrT.length!=0">
+      <mat-accordion multi="false">
+      <div *ngFor="let item of arrT">
+      <mat-expansion-panel style="margin-top:2%;">
+        <mat-expansion-panel-header>
+          <mat-panel-title>{{item.class}}</mat-panel-title>
+          <mat-panel-description>Izmaiņu skaits: {{item?.lessons?.length}}</mat-panel-description>
+        </mat-expansion-panel-header>
+        <div *ngFor="let stunda of item.lessons"><mat-divider [inset]="true"></mat-divider>{{stunda.lessonNumber}}. 
+          <span *ngIf="stunda?.rooms?.length == 0 "> Nenotiek!</span>
+          <p *ngFor="let room of stunda.rooms">
+          Kabinets: {{room.room}}. <br>
+          Priekšmets: {{room.subject}}<br>
+          Skolotājs: {{room.teacherName}}<br>
+          <span *ngIf="room.note != null ">Piezīme: {{room.note.noteText}}</span>
+          </p>
+        </div>
+    </mat-expansion-panel>
+    </div>
+    <mat-divider [inset]="true"></mat-divider>
+  </mat-accordion>
+  
+    </div>
+     <div class="pc" style="width:44%; height:100%; float:left; margin-left:1%; margin-right: 5%; padding-bottom: 10%;" *ngIf="arr2T.length!=0">
+      <mat-accordion multi="false">
+        <div *ngFor="let item of arr2T">
+        <mat-expansion-panel style="margin-top:2%;">
+          <mat-expansion-panel-header>
+            <mat-panel-title>{{item.class}}</mat-panel-title>
+            <mat-panel-description>Izmaiņu skaits: {{item?.lessons?.length}}</mat-panel-description>
+          </mat-expansion-panel-header>
+          <div *ngFor="let stunda of item.lessons"><mat-divider [inset]="true"></mat-divider>{{stunda.lessonNumber}}. 
+            <span *ngIf="stunda?.rooms?.length == 0 "> Nenotiek!</span>
+            <p *ngFor="let room of stunda.rooms">
+            Kabinets: {{room.room}}. <br>
+            Priekšmets: {{room.subject}}<br>
+            Skolotājs: {{room.teacherName}}<br>
+            <span *ngIf="room.note != null ">Piezīme: {{room.note.noteText}}</span>
+            </p>
+          </div>
+      </mat-expansion-panel>
+      </div>
+      <mat-divider [inset]="true"></mat-divider>
+    </mat-accordion>
+    
+
+    </div> 
+
+
+    <div class="mobile" style="padding-bottom: 20%;">
+
+      <mat-accordion class="example-headers-align"  multi="false" *ngIf="izmainasT!==0">
+        <div *ngFor="let item of izmainasT">
+          <mat-expansion-panel style="margin-top:2%;">
+        <mat-expansion-panel-header>
+          <mat-panel-title>{{item.class}}</mat-panel-title>
+          <mat-panel-description>Izmaiņu skaits: {{item?.lessons?.length}}</mat-panel-description>
+        </mat-expansion-panel-header>
+        
+        <div *ngFor="let stunda of item.lessons"><mat-divider [inset]="true"></mat-divider>{{stunda.lessonNumber}}. 
+          <span *ngIf="stunda?.rooms?.length == 0 "> Nenotiek!</span>
+          <p *ngFor="let room of stunda.rooms">
+          Kabinets: {{room.room}}. <br>
+          Priekšmets: {{room.subject}}<br>
+          Skolotājs: {{room.teacherName}}<br>
+          <span *ngIf="room.note != null ">Piezīme: {{room.note.noteText}}</span>
+          </p>
+        </div>
+        </mat-expansion-panel>
+        </div>
+        
+      
+      <mat-divider [inset]="true"></mat-divider>
+      
+    </mat-accordion>
+    
+    </div>
+     </mat-tab>
+ </mat-tab-group> 
+ <div class="footer">
+  <mat-divider ></mat-divider>
+   <div style=" margin:0; width:100%; height:100%; float:left;text-align: center !important;">©Stundu Izmaiņas, 2021</div>
+ </div>
+</div>
+
+
+

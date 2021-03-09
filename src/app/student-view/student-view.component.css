@@ -1,0 +1,52 @@
+div.main{
+    width:70%;
+    margin-left: 15%;
+    height:88% !important;
+}
+app-main-nav, .main{
+    overflow-y: hidden;
+}
+
+.mat-elevation-z4{
+    margin-top: 5%;
+    width: 200px;
+}
+div.content{
+    overflow-y: auto !important;
+    width:80%;
+    margin-left: 10%;
+}
+.pc{
+    display:none;
+}
+.mobile{
+    display:inherit;
+}
+mat-divider{
+    width:100%;
+    margin-left: 0px !important;
+}
+
+
+
+@media(min-width:600px){
+    .pc{
+        display:inherit;
+    }
+    .mobile{
+        display:none;
+    }
+  }
+  
+  .footer-div p{
+    margin-top: 8px;
+  }
+  mat-tab-group{
+      height:88%;
+
+  }
+  mat-divider.mat-divider, mat-divider.mat-divider-inset {
+     margin-left: 0 !important; 
+}
+
+

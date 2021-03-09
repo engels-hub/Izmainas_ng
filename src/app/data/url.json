@@ -1,0 +1,6 @@
+{
+    "st1":"http://localhost:3000/data",
+    "st2":"http://localhost:3001/data",
+    "t1":"http://localhost:3002/data",
+    "t2":"http://localhost:3003/data"
+}

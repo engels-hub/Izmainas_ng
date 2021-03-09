@@ -1,0 +1,47 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Izvelne</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/student">Skolēniem</a>
+      <a mat-list-item routerLink="/teacher">Skolotājiem</a>
+      <a mat-list-item routerLink="/important" >Svarīgi</a><br>
+      <a mat-list-item href="#" >Pārslegt krāsu režīmu</a><br>
+      
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+      class="hamburger"
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <img src="././favicon.ico">
+      <span style="margin-left: 2px; margin-right: 10%;" mat-headline>Stundu Izmaiņas</span>
+      
+      <span class="spacer" >
+      <a routerLink="/student" class="bigmode" mat-headline [ngClass]="{'chosen' : router.url=='/student'}">Skolēniem</a>
+      <a routerLink="/teacher" class="bigmode" mat-headline [ngClass]="{'chosen' : router.url=='/teacher'}">Skolotājiem</a>
+      <a routerLink="/important" class="bigmode"  mat-headline [ngClass]="{'chosen' : router.url=='/important'}">Svarīgi</a>
+      <button
+        type="button"
+        aria-label="Toggle dark mode"
+        mat-icon-button
+        style="margin-left:auto;"
+        >
+        <mat-icon aria-label="Side nav toggle icon">invert_colors</mat-icon>
+      </button>
+      </span>
+      
+      
+    </mat-toolbar>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>
